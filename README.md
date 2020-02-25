@@ -1,6 +1,8 @@
 # YelpCamp
 ### Part of the _Apps Bound for the Cloud_ (ABC) series
+
 _Origin Source_: [The Web Developer Bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/)
+
 **_Image Refrns_**
 * https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg
 * https://farm9.staticflickr.com/8002/7299820870_e78782c078.jpg
