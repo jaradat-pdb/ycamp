@@ -18,6 +18,10 @@ mongoose.connect(process.env.DB_URL, {
 	useFindAndModify: false,
 	useCreateIndex: true,
 	useUnifiedTopology: true
+}).then(() => {
+	console.log(`Connected to mongoDB at [${process.env.DB_URL}]`);
+}).catch(err => {
+	console.error(`App starting error, unable to connect to [${process.env.DB_URL}]\n${err.stack}`);
 });
 if(process.env.SEED_DB) {
 	seeds();
