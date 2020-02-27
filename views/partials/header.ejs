@@ -25,24 +25,32 @@
 			</button>
 			<div class="collapse navbar-collapse flex-grow-0" id="navbarLinks">
 				<ul class="navbar-nav">
-				<% if(!user) { %>
+				<% if(user) { %>
+					<li class="nav-item">
+						<a href="#" class="nav-link disabled">Signed in as <%= user.username %></a>
+					</li>
+					<li class="nav-item d-inline d-sm-none">
+						<a href="/campgrounds/new" class="nav-link">Add New Campground</a>
+					</li>
+				<% } else { %>
 					<li class="nav-item">
 						<a href="/login" class="nav-link">Login</a>
 					</li>
 					<li class="nav-item">
 						<a href="/register" class="nav-link">Sign Up</a>
 					</li>
-				<% } else { %>
-					<li class="nav-item">
-						<a href="#" class="nav-link disabled">Signed in as <%= user.username %></a>
-					</li>
+				<% } %>
+				<li class="nav-item d-block d-sm-none">
+					<a href="/campgrounds" class="nav-link">View Campgrounds</a>
+				</li>
+				<li class="nav-item">
+					<a href="/about" class="nav-link">About</a>
+				</li>
+				<% if(user) { %>
 					<li class="nav-item">
 						<a href="/logout" class="nav-link">Logout</a>
 					</li>
 				<% } %>
-				<li class="nav-item">
-					<a href="/about" class="nav-link">About</a>
-				</li>
 				</ul>
 			</div>
 		</nav>
