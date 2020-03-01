@@ -6,7 +6,7 @@
 				</div>
 			</header>
 			<div class="d-flex flex-row justify-content-center">
-				<div class="col-md-3 d-none d-md-block">
+				<div class="col-md-3 d-none d-lg-block">
 					<p class="lead">YelpCamp</p>
 					<div class="list-group">
 						<li class="list-group-item list-group-item-success">Info 1</li>
@@ -20,31 +20,41 @@
 						<div class="card-header text-right pr-5">
 							<%= campground.price.currency %> <%= campground.price.value %>
 						</div>
-						<div class="card-body">
+						<div class="card-body border border-danger">
 							<h5 class="card-title"><%= campground.name %></h5>
 							<% if(campground.author) { %>
 								<h6 class="card-subtitle mb-2 text-muted">Submitted by <%= campground.author.username %></h6>
 							<% }; %>
 							<p class="card-text px-2"><%= campground.desc %></p>
-							<% if((user) && (campground.author.username === "Admin" || ((campground.author.id) && campground.author.id.equals(user._id)))) { %>
-								<div class="d-flex flex-row justify-content-around">
-									<a href="/campgrounds/<%= campground._id %>/edit" class="card-link btn btn-warning hyper-btn">Edit</a>
-									<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="inline-form">
-										<button class="btn btn-danger hyper-btn">Delete</button>
-									</form>
-								</div>
-							<% }; %>
+							<div class="btn-group d-flex border border-primary justify-content-around">
+								<a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-sm btn-warning hyper-btn">Edit</a>
+								<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="inline-form">
+									<button class="btn btn-sm btn-danger hyper-btn">Delete</button>
+								</form>
+							</div>
 						</div>
+							
+							<!-- <div class="row">
+								<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center py-2 py-md-0 border border-primary">
+									
+								</div>
+								<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center py-2 py-md-0 border border-success">
+									
+								</div>
+							</div> -->
+							<% if((user) && (campground.author.username === "Admin" || ((campground.author.id) && campground.author.id.equals(user._id)))) { %>
+								
+							<% }; %>
 					</div>
 					<div class="card mt-3 bg-secondary text-light">
 						<div class="card-body pt-0 px-0">
-							<div class="d-flex flex-row mb-4" id="comment-title-border">
-								<div class="col-6 d-flex flex-column align-items-center">
+							<div class="d-flex flex-row mb-4" id="comment-header-border">
+								<div class="col-12 d-flex flex-column align-items-center">
 									<h5 class="card-title my-2" id="comment-title">Comments</h5>
 								</div>
-								<div class="col-6 d-flex flex-column justify-content-center align-items-end pr-0">
+								<!-- <div class="col-6 d-flex flex-column justify-content-center align-items-end pr-0">
 									<a href="/campgrounds/<%= campground._id %>/comments/new" class="card-link btn btn-success hyper-btn">Add New Comment</a>
-								</div>
+								</div> -->
 							</div>
 							<% campground.comments.forEach((comment) => {%>
 								<div class="d-flex flex-row align-items-center p-2 my-1">
@@ -63,6 +73,11 @@
 									</div>
 								</div>
 							<% }); %>
+							<% if(user) { %>
+								<div class="d-flex flex-row justify-content-center mt-2 pt-2" id="comment-footer-border">
+									<a href="/campgrounds/<%= campground._id %>/comments/new" class="card-link btn btn-success hyper-btn">Add New Comment</a>
+								</div>
+							<% }; %>
 						</div>
 					</div>
 				</div>
