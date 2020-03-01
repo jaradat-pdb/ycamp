@@ -30,7 +30,7 @@ h1 {
 	width: auto;
 }
 .hyper-btn {
-	width: 18rem;
+	width: 8rem;
 }
 .inline-form {
 	display: inline;
@@ -52,8 +52,11 @@ h1 {
 	font-family: 'Monofett', cursive;
 	font-size: 4rem;
 }
-#comment-title-border {
+#comment-header-border {
 	border-bottom: 5px dotted rgb(221, 166, 25);
+}
+#comment-footer-border {
+	border-top: 5px dotted rgb(221, 166, 25);
 }
 #index {
 	color: darkgreen;
